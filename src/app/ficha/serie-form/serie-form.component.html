@@ -1,0 +1,23 @@
+<form #serieForm (ngSubmit)="addSerie()">
+    <div class="form-container">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome da Série</mat-label>
+            <input matInput placeholder="Placeholder" [(ngModel)]="novaSerie.nome" name="nome">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint *ngIf="error">Hint</mat-hint>
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary" type="submit">Adicionar</button>
+    </div>
+</form>
+
+<mat-divider class="form-devider"></mat-divider>
+
+<div class="form-container">
+    <button mat-raised-button color="warn"
+        class="button-serie"
+        *ngFor="let serie of series">
+        {{ serie.nome }}
+    </button>
+</div>

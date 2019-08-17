@@ -1,0 +1,2 @@
+## POSTAR NO GITHUBPAGES
+ng run tpool-front:deploy --base-href=/tpool-front/
