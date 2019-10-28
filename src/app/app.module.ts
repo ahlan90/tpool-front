@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
-import { FichaModule } from './ficha/ficha.module';
+import { FichaModule } from './ficha/components/ficha.module';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FichaModule } from './ficha/ficha.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FichaModule
+    FichaModule,
+    TooltipModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

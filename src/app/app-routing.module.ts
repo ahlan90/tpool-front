@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SerieComponent } from './ficha/serie/serie.component';
+import { SeriePageComponent } from './ficha/containers/serie-page/serie-page.component';
+import { SerieDetailComponent } from './ficha/components/serie-detail/serie-detail.component';
 
 
 const routes: Routes = [
   { 
-    path: 'ficha',
-    component: SerieComponent 
+    path: '',
+    component: SeriePageComponent 
+  },
+  { 
+    path: 'serie/:id',
+    component: SerieDetailComponent 
   },
 ];
 
