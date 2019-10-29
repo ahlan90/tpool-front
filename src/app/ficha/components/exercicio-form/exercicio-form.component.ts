@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Exercicio } from '../../models/exercicio';
+import { ExercicioService } from '../../services/exercicio.service';
 
 @Component({
   selector: 'app-exercicio-form',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExercicioFormComponent implements OnInit {
 
-  constructor() { }
+  execicioControl = new FormControl();
+
+  nomesExercicios: any[];
+
+  @Input() exercicio: Exercicio;
+
+  constructor(private exercicioService: ExercicioService) { }
 
   ngOnInit() {
+    this.nomesExercicios = this.exercicioService.getNomeExercicios();
   }
 
+  add(){}
 }

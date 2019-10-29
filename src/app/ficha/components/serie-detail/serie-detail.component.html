@@ -1,3 +1,14 @@
-<h2 class="mt-2 text-center">Série {{ serie$.nome }}</h2>
+<mat-card id="subtitulo" class="d-flex justify-content-between">
+    <h2 class="mt-2 text-center">Série {{ serie$.nome }}</h2>
+    <button mat-icon-button class="mt-1" aria-label="Icon add" (click)="add()">
+        <mat-icon style="font-size: 32px;">add</mat-icon>
+    </button>
+</mat-card>
+
 <mat-divider></mat-divider>
-<app-exercicio-form></app-exercicio-form>
+
+<mat-accordion *ngFor="let ex of serie$.exercicios" class="mx-1">
+
+    <app-exercicio-form [exercicio]="ex"></app-exercicio-form>
+
+</mat-accordion>

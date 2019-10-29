@@ -1,5 +1,5 @@
 export interface Exercicio{
-    id: number,
+    id?: number,
     nome: string,
     repeticao: string,
     intervalo: string,

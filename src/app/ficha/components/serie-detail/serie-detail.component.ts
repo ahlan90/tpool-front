@@ -14,18 +14,28 @@ export class SerieDetailComponent implements OnInit {
 
   serie$;
 
-  exercicios: Exercicio[] = [];
-
   constructor(
     private route: ActivatedRoute,
     private service: SerieService) { }
 
   ngOnInit() {
-
     let id = this.route.snapshot.paramMap.get('id');
-
     this.serie$ = this.service.getSerie(id);
 
+    this.serie$.exercicios = [];
+    this.add();
+  }
+
+  add(){
+
+    let exercicio: Exercicio = {
+      nome: '',
+      repeticao: '',
+      intervalo: '',
+      obsevacao: ''
+    }
+
+    this.serie$.exercicios.push(exercicio);
   }
 
 }

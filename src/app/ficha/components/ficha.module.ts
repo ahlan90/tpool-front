@@ -9,6 +9,7 @@ import { MaterialModule } from '../../material-module';
 import { SerieListComponent } from './serie-list/serie-list.component';
 import { SeriePageComponent } from '../containers/serie-page/serie-page.component';
 import { ExercicioFormComponent } from './exercicio-form/exercicio-form.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ExercicioFormComponent } from './exercicio-form/exercicio-form.componen
     ScrollingModule,
     ReactiveFormsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ]
 })
 export class FichaModule { }
