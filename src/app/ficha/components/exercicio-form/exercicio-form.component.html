@@ -5,7 +5,7 @@
             {{ index }}. {{ exercicio.nome ? exercicio.nome : 'Clique para prescrever o exercicio...' }}
         </mat-panel-title>
         <mat-panel-description>
-            {{ exercicio.repeticoes ? exercicio.repeticoes : '' }}
+            {{ exercicio.repeticao ? exercicio.repeticao : '' }}
         </mat-panel-description>
     </mat-expansion-panel-header>
 
@@ -31,8 +31,8 @@
                 <div class="col-6">
                     <form>
                         <mat-form-field appearance="outline" class="example-full-width">
-                            <input type="text" placeholder="Repetições" matInput [(ngModel)]="exercicio.repeticoes"
-                                name="repeticoes" [matAutocomplete]="autoRep">
+                            <input type="text" placeholder="Repetições" matInput [(ngModel)]="exercicio.repeticao"
+                                name="repeticao" [matAutocomplete]="autoRep">
                             <mat-autocomplete #autoRep="matAutocomplete">
                                 <mat-option *ngFor="let item of dropRepeticoes" [value]="item.nome">
                                     {{ item.nome }}
@@ -60,7 +60,6 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Observação</mat-label>
                         <input matInput placeholder="Placeholder" [(ngModel)]="exercicio.observacao" name="observacao">
-                        <mat-hint *ngIf="error">Hint</mat-hint>
                     </mat-form-field>
                 </div>
             </div>

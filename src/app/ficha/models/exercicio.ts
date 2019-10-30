@@ -3,5 +3,5 @@ export interface Exercicio{
     nome: string,
     repeticao: string,
     intervalo: string,
-    obsevacao: string
+    observacao: string
 }

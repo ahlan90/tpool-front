@@ -32,7 +32,7 @@ export class SerieDetailComponent implements OnInit {
       nome: '',
       repeticao: '',
       intervalo: '',
-      obsevacao: ''
+      observacao: ''
     }
 
     this.serie$.exercicios.push(exercicio);
