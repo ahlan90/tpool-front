@@ -1,11 +1,21 @@
 <ul class="list-unstyled">
     <li *ngFor="let serie of series" class="my-2">
-        
-        <button mat-raised-button color="primary" 
-            [routerLink]="[ '/serie', serie.id ]"
-            class="btn-block" >
-            Série
-            {{ serie.nome }}
-        </button>
+        <mat-card class="btn-block">
+            <mat-card-content>
+                <div class="d-flex justify-content-between">
+                    <mat-card-title>Série {{ serie.nome }}</mat-card-title>
+                    <div class="d-flex justify-content-between">
+                        <button mat-raised-button color="accent" class="mr-3"
+                            (click)="remove(serie.id)">REMOVER</button>
+                        <button mat-raised-button color="primary"
+                            [routerLink]="[ '/serie', serie.id ]">EXERCICIOS</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
     </li>
 </ul>
+
+<button mat-fab aria-label="Example icon-button with a heart icon" color="primary" class="md-fab">
+    <mat-icon>picture_as_pdf</mat-icon>
+</button>

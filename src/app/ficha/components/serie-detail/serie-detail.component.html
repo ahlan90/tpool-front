@@ -7,8 +7,8 @@
 
 <mat-divider></mat-divider>
 
-<mat-accordion *ngFor="let ex of serie$.exercicios" class="mx-1">
+<mat-accordion *ngFor="let ex of serie$.exercicios; let i = index" class="mx-1">
 
-    <app-exercicio-form [exercicio]="ex"></app-exercicio-form>
+    <app-exercicio-form [exercicio]="ex" [index]="i+1"></app-exercicio-form>
 
 </mat-accordion>

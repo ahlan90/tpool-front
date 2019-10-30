@@ -9,24 +9,10 @@ export class SerieService {
 
   
   seriesSubject = new BehaviorSubject<Serie[]>(null);
-  series: Serie[] = [
-    {
-      id: 1,
-      nome: "A"
-    },
-    {
-      id: 2,
-      nome: "B"
-    },
-    {
-      id: 3,
-      nome: "C"
-    },
-    {
-      id: 4,
-      nome: "D"
-    }
-  ];
+
+  series: Serie[] = [];
+
+  index: number = 1;
 
   constructor() {
     this.seriesSubject.next(this.series);
@@ -37,12 +23,22 @@ export class SerieService {
   }
 
   add(serie: Serie){
+
+    serie.id = this.index;
+
+    this.index++;
+
     this.series.push(serie);
     this.seriesSubject.next(this.series);    
   }
 
   getSerie(id: string): any {
     return this.series.filter( x => x.id === Number(id))[0];
+  }
+
+  remove(id){
+    this.series = this.series.filter( x => x.id != id);
+    this.seriesSubject.next(this.series);
   }
 
 }

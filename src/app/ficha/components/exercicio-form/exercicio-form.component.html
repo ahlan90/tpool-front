@@ -2,7 +2,7 @@
 
     <mat-expansion-panel-header>
         <mat-panel-title>
-            {{ exercicio.nome ? exercicio.nome : 'Clique para prescrever o exercicio...' }}
+            {{ index }}. {{ exercicio.nome ? exercicio.nome : 'Clique para prescrever o exercicio...' }}
         </mat-panel-title>
         <mat-panel-description>
             {{ exercicio.repeticoes ? exercicio.repeticoes : '' }}
@@ -13,12 +13,12 @@
         <div class="my-3">
             <div class="row">
                 <div class="col-12">
-                    <form class="example-form">
+                    <form>
                         <mat-form-field appearance="outline" class="example-full-width">
                             <input type="text" placeholder="Exercicio" matInput [(ngModel)]="exercicio.nome" name="nome"
-                                [matAutocomplete]="auto">
-                            <mat-autocomplete #auto="matAutocomplete">
-                                <mat-option *ngFor="let item of nomesExercicios" [value]="item.nome">
+                                [matAutocomplete]="autoExercicio">
+                            <mat-autocomplete #autoExercicio="matAutocomplete">
+                                <mat-option *ngFor="let item of dropExercicios" [value]="item.nome">
                                     {{ item.nome }}
                                 </mat-option>
                             </mat-autocomplete>
@@ -29,18 +29,30 @@
 
             <div class="row">
                 <div class="col-6">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Repetições</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="exercicio.repeticoes" name="repeticoes">
-                        <mat-hint *ngIf="error">Hint</mat-hint>
-                    </mat-form-field>
+                    <form>
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <input type="text" placeholder="Repetições" matInput [(ngModel)]="exercicio.repeticoes"
+                                name="repeticoes" [matAutocomplete]="autoRep">
+                            <mat-autocomplete #autoRep="matAutocomplete">
+                                <mat-option *ngFor="let item of dropRepeticoes" [value]="item.nome">
+                                    {{ item.nome }}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
                 </div>
                 <div class="col-6">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Intervalo</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="exercicio.intervalo" name="intervalo">
-                        <mat-hint *ngIf="error">Hint</mat-hint>
-                    </mat-form-field>
+                    <form>
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <input type="text" placeholder="Intervalo" matInput [(ngModel)]="exercicio.intervalo"
+                                name="intervalo" [matAutocomplete]="autoIntervalo">
+                            <mat-autocomplete #autoIntervalo="matAutocomplete">
+                                <mat-option *ngFor="let item of dropIntervalo" [value]="item.nome">
+                                    {{ item.nome }}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </form>
                 </div>
             </div>
             <div class="row">
