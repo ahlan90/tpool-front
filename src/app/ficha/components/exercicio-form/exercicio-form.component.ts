@@ -21,9 +21,7 @@ export class ExercicioFormComponent implements OnInit {
   dropIntervalo: any[];
 
   @Input() exercicio: Exercicio;
-
-  @Input() index;
-
+  
   constructor(
     private exercicioService: ExercicioService,
     private intervaloService: IntervaloService,

@@ -1,2 +1,5 @@
 ## POSTAR NO GITHUBPAGES
-ng run tpool-front:deploy --base-href=/tpool-front/
+ng build --prod --base-href "https://ahlan90.github.io/tpool-front/"
+
+## verificar este codigo
+ngh --dist=/tpool-front

@@ -1,14 +1,36 @@
-<mat-card id="subtitulo" class="d-flex justify-content-between">
-    <h2 class="mt-2 text-center">Série {{ serie$.nome }}</h2>
-    <button mat-icon-button class="mt-1" aria-label="Icon add" (click)="add()">
-        <mat-icon style="font-size: 32px;">add</mat-icon>
-    </button>
-</mat-card>
+<mat-card-title>Série {{ serie$.nome }}</mat-card-title>
+<mat-card-subtitle>Prescreva os exercícios</mat-card-subtitle>
+
 
 <mat-divider></mat-divider>
 
-<mat-accordion *ngFor="let ex of serie$.exercicios; let i = index" class="mx-1">
+<mat-accordion *ngFor="let exercicio of serie$.exercicios; let i = index" class="mx-1">
 
-    <app-exercicio-form [exercicio]="ex" [index]="i+1"></app-exercicio-form>
+    <mat-expansion-panel [expanded]="step === i" (opened)="setStep(i)">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ i + 1 }}. {{ exercicio.nome ? exercicio.nome : 'Clique para prescrever o exercicio...' }}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{ exercicio.repeticao ? exercicio.repeticao : '' }}
+                {{ exercicio.intervalo ? '/ ' + exercicio.intervalo : '' }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <app-exercicio-form [exercicio]="exercicio"></app-exercicio-form>
+
+        <mat-card-actions>
+            <button mat-raised-button color="warn" aria-label="Icon remove" (click)="remove(exercicio.id)">
+                REMOVER
+            </button>
+            <button mat-raised-button color="primary" aria-label="Icon remove" (click)="nextExercise()">
+                PRÓXIMO
+            </button>
+        </mat-card-actions>
+    </mat-expansion-panel>
 
 </mat-accordion>
+
+<button mat-fab aria-label="Icon check" color="primary" class="md-fab-bottom-right" [routerLink]="['/']">
+    <mat-icon>check</mat-icon>
+</button>

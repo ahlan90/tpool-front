@@ -1,76 +1,56 @@
-<mat-expansion-panel>
-
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            {{ index }}. {{ exercicio.nome ? exercicio.nome : 'Clique para prescrever o exercicio...' }}
-        </mat-panel-title>
-        <mat-panel-description>
-            {{ exercicio.repeticao ? exercicio.repeticao : '' }}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <mat-card-content>
-        <div class="my-3">
-            <div class="row">
-                <div class="col-12">
-                    <form>
-                        <mat-form-field appearance="outline" class="example-full-width">
-                            <input type="text" placeholder="Exercicio" matInput [(ngModel)]="exercicio.nome" name="nome"
-                                [matAutocomplete]="autoExercicio">
-                            <mat-autocomplete #autoExercicio="matAutocomplete">
-                                <mat-option *ngFor="let item of dropExercicios" [value]="item.nome">
-                                    {{ item.nome }}
-                                </mat-option>
-                            </mat-autocomplete>
-                        </mat-form-field>
-                    </form>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-6">
-                    <form>
-                        <mat-form-field appearance="outline" class="example-full-width">
-                            <input type="text" placeholder="Repetições" matInput [(ngModel)]="exercicio.repeticao"
-                                name="repeticao" [matAutocomplete]="autoRep">
-                            <mat-autocomplete #autoRep="matAutocomplete">
-                                <mat-option *ngFor="let item of dropRepeticoes" [value]="item.nome">
-                                    {{ item.nome }}
-                                </mat-option>
-                            </mat-autocomplete>
-                        </mat-form-field>
-                    </form>
-                </div>
-                <div class="col-6">
-                    <form>
-                        <mat-form-field appearance="outline" class="example-full-width">
-                            <input type="text" placeholder="Intervalo" matInput [(ngModel)]="exercicio.intervalo"
-                                name="intervalo" [matAutocomplete]="autoIntervalo">
-                            <mat-autocomplete #autoIntervalo="matAutocomplete">
-                                <mat-option *ngFor="let item of dropIntervalo" [value]="item.nome">
-                                    {{ item.nome }}
-                                </mat-option>
-                            </mat-autocomplete>
-                        </mat-form-field>
-                    </form>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Observação</mat-label>
-                        <input matInput placeholder="Placeholder" [(ngModel)]="exercicio.observacao" name="observacao">
+<mat-card-content>
+    <div class="my-3">
+        <div class="row">
+            <div class="col-12">
+                <form>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <input type="text" placeholder="Exercicio" matInput [(ngModel)]="exercicio.nome" name="nome"
+                            [matAutocomplete]="autoExercicio">
+                        <mat-autocomplete #autoExercicio="matAutocomplete">
+                            <mat-option *ngFor="let item of dropExercicios" [value]="item.nome">
+                                {{ item.nome }}
+                            </mat-option>
+                        </mat-autocomplete>
                     </mat-form-field>
-                </div>
+                </form>
             </div>
         </div>
-    </mat-card-content>
 
-    <mat-card-actions>
-
-        <button mat-raised-button color="warn" aria-label="Icon remove" (click)="remove()">
-            REMOVER
-        </button>
-    </mat-card-actions>
-
-</mat-expansion-panel>
+        <div class="row">
+            <div class="col-6">
+                <form>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <input type="text" placeholder="Repetições" matInput [(ngModel)]="exercicio.repeticao"
+                            name="repeticao" [matAutocomplete]="autoRep">
+                        <mat-autocomplete #autoRep="matAutocomplete">
+                            <mat-option *ngFor="let item of dropRepeticoes" [value]="item.nome">
+                                {{ item.nome }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-6">
+                <form>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <input type="text" placeholder="Intervalo" matInput [(ngModel)]="exercicio.intervalo"
+                            name="intervalo" [matAutocomplete]="autoIntervalo">
+                        <mat-autocomplete #autoIntervalo="matAutocomplete">
+                            <mat-option *ngFor="let item of dropIntervalo" [value]="item.nome">
+                                {{ item.nome }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field appearance="outline">
+                    <mat-label>Observação</mat-label>
+                    <input matInput placeholder="Placeholder" [(ngModel)]="exercicio.observacao" name="observacao">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</mat-card-content>

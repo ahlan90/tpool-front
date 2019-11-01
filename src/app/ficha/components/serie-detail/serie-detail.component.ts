@@ -14,6 +14,10 @@ export class SerieDetailComponent implements OnInit {
 
   serie$;
 
+  step = 0;
+
+  idExercicio = 1;
+
   constructor(
     private route: ActivatedRoute,
     private service: SerieService) { }
@@ -26,16 +30,32 @@ export class SerieDetailComponent implements OnInit {
     this.add();
   }
 
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextExercise() {
+    this.add();
+    this.step++;
+  }
+
   add(){
 
     let exercicio: Exercicio = {
+      id: this.idExercicio,
       nome: '',
       repeticao: '',
       intervalo: '',
       observacao: ''
     }
 
+    this.idExercicio++;
+
     this.serie$.exercicios.push(exercicio);
+  }
+
+  remove(id){
+    this.serie$.exercicios = this.serie$.exercicios.filter( x => x.id != id);
   }
 
 }
