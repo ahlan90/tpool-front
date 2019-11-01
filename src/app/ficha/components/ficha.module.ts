@@ -10,6 +10,7 @@ import { SerieListComponent } from './serie-list/serie-list.component';
 import { SeriePageComponent } from '../containers/serie-page/serie-page.component';
 import { ExercicioFormComponent } from './exercicio-form/exercicio-form.component';
 import { RouterModule } from '@angular/router';
+import { FichaPrintComponent } from './ficha-print/ficha-print.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     SerieFormComponent,
     SerieListComponent,
     SeriePageComponent,
-    ExercicioFormComponent
+    ExercicioFormComponent,
+    FichaPrintComponent
   ],
   imports: [
     CommonModule,

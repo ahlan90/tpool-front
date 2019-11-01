@@ -1,44 +1,111 @@
 import { Injectable } from '@angular/core';
 import { Serie } from '../models/serie';
 import { BehaviorSubject } from 'rxjs';
+import { Ficha } from '../models/ficha';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SerieService {
 
-  
-  seriesSubject = new BehaviorSubject<Serie[]>(null);
+  ficha: Ficha = {
+    series: [
+      {
+        id: 1,
+        nome: "A",
+        exercicios: [
+          {
+            nome: "Supino Reto",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          },
+          {
+            nome: "Supino Declinado",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          },
+          {
+            nome: "Voador",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          },
+          {
+            nome: "Crucifixo",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          }
+        ]
+      },
+      {
+        id: 2,
+        nome: "B",
+        exercicios: [
+          {
+            nome: "Cavalinho",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          },
+          {
+            nome: "Pulldown",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          },
+          {
+            nome: "Remada Baixa",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          },
+          {
+            nome: "Levantamento Terra",
+            repeticao: "3 x 10",
+            intervalo: "30s",
+            observacao: ""
+          }
+        ]
+      }
+    ]
+  };
 
-  series: Serie[] = [];
+  seriesSubject = new BehaviorSubject<Serie[]>(null);
 
   index: number = 1;
 
   constructor() {
-    this.seriesSubject.next(this.series);
+    this.seriesSubject.next(this.ficha.series);
   }
 
-  getSeriesObservable(){
+  getSeriesObservable() {
     return this.seriesSubject.asObservable();
   }
 
-  add(serie: Serie){
+  add(serie: Serie) {
 
     serie.id = this.index;
 
     this.index++;
 
-    this.series.push(serie);
-    this.seriesSubject.next(this.series);    
+    this.ficha.series.push(serie);
+    this.seriesSubject.next(this.ficha.series);
   }
 
   getSerie(id: string): any {
-    return this.series.filter( x => x.id === Number(id))[0];
+    return this.ficha.series.filter(x => x.id === Number(id))[0];
   }
 
-  remove(id){
-    this.series = this.series.filter( x => x.id != id);
-    this.seriesSubject.next(this.series);
+  remove(id) {
+    this.ficha.series = this.ficha.series.filter(x => x.id != id);
+    this.seriesSubject.next(this.ficha.series);
+  }
+
+  getFicha() {
+    return this.ficha;
   }
 
 }

@@ -24,6 +24,9 @@
     </li>
 </ul>
 
-<button mat-fab aria-label="Example icon-button with a heart icon" color="primary" class="md-fab-bottom-right">
+<button *ngIf="series.length > 0" 
+    mat-fab aria-label="Icon button print"
+    [routerLink]="[ '/ficha-print' ]"
+    color="primary" class="md-fab-bottom-right">
     <mat-icon>picture_as_pdf</mat-icon>
 </button>
