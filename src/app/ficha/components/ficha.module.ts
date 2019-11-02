@@ -11,6 +11,9 @@ import { SeriePageComponent } from '../containers/serie-page/serie-page.componen
 import { ExercicioFormComponent } from './exercicio-form/exercicio-form.component';
 import { RouterModule } from '@angular/router';
 import { FichaPrintComponent } from './ficha-print/ficha-print.component';
+import { FichaFormComponent } from './ficha-form/ficha-form.component';
+import { ProfessorFormComponent } from './professor-form/professor-form.component';
+import { AlunoFormComponent } from './aluno-form/aluno-form.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { FichaPrintComponent } from './ficha-print/ficha-print.component';
     SerieListComponent,
     SeriePageComponent,
     ExercicioFormComponent,
-    FichaPrintComponent
+    FichaPrintComponent,
+    FichaFormComponent,
+    ProfessorFormComponent,
+    AlunoFormComponent
   ],
   imports: [
     CommonModule,

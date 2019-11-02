@@ -1,0 +1,8 @@
+<form  [formGroup]="serieForm" (ngSubmit)="addSerie(serieForm.value)">
+    <div class="d-flex mt-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome da Série</mat-label>
+            <input matInput placeholder="Placeholder"  formControlName="nome">
+        </mat-form-field>
+    </div>
+</form>

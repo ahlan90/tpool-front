@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { Serie } from '../models/serie';
 import { BehaviorSubject } from 'rxjs';
 import { Ficha } from '../models/ficha';
+import { Professor } from '../models/professor';
+import { Aluno } from '../models/aluno';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SerieService {
 
+
   ficha: Ficha = {
+    aluno: null,
+    professor: null,
     series: [
       {
         id: 1,
@@ -106,6 +111,14 @@ export class SerieService {
 
   getFicha() {
     return this.ficha;
+  }
+
+  addProfessor(professor: Professor){
+    this.ficha.professor = professor;
+  }
+
+  addAluno(novoAluno: Aluno) {
+    this.ficha.aluno = novoAluno;
   }
 
 }

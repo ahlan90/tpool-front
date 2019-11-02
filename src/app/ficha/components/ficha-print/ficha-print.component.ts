@@ -13,11 +13,9 @@ export class FichaPrintComponent implements OnInit {
   ficha$: Ficha;
 
   constructor(
-    private route: ActivatedRoute,
-    private service: SerieService) { }
+    private service: SerieService) {}
 
   ngOnInit() {
     this.ficha$ = this.service.getFicha();
-    
   }
 }
