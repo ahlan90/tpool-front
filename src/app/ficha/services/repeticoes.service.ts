@@ -1,35 +1,25 @@
+import { Observable } from 'rxjs';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { Serie } from '../models/serie';
-import { BehaviorSubject } from 'rxjs';
+import { Repeticao } from '../models/repeticao';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RepeticoesService {
-  
-  repeticoes: Serie[] = [
-    {
-      id: 1,
-      nome: "12 a 10"
-    },
-    {
-      id: 2,
-      nome: "15 a 20"
-    },
-    {
-      id: 3,
-      nome: "8 a 10"
-    },
-    {
-      id: 4,
-      nome: "6 a 8"
-    }
-  ];
 
-  constructor() {}
+  private repeticoesCollection: AngularFirestoreCollection<Repeticao>;
+  repeticoes: Observable<Repeticao[]>;
+
+  constructor(
+    private afs: AngularFirestore
+  ) {
+    this.repeticoesCollection = afs.collection<Repeticao>('repeticoes', ref => ref.orderBy('id'));
+    this.repeticoes = this.repeticoesCollection.valueChanges();
+  }
 
 
-  getRepeticoes(): any {
+  getRepeticoes() {
     return this.repeticoes;
   }
 

@@ -1,4 +1,5 @@
 <mat-card-title>Série {{ serie$.nome }}</mat-card-title>
+<br/>
 <mat-card-subtitle>Prescreva os exercícios</mat-card-subtitle>
 
 
@@ -19,12 +20,14 @@
 
         <app-exercicio-form [exercicio]="exercicio"></app-exercicio-form>
 
-        <mat-card-actions>
+        <mat-card-actions class="w-100 d-flex justify-content-between">
             <button mat-raised-button color="warn" aria-label="Icon remove" (click)="remove(exercicio.id)">
-                REMOVER
+              <mat-icon class="mb-1">delete</mat-icon>
+              REMOVER
             </button>
             <button mat-raised-button color="primary" aria-label="Icon remove" (click)="nextExercise()">
-                PRÓXIMO
+              <mat-icon class="mb-1">arrow_downward</mat-icon>
+              PRÓXIMO
             </button>
         </mat-card-actions>
     </mat-expansion-panel>

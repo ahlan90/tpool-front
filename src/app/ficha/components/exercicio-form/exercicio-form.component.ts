@@ -14,14 +14,12 @@ export class ExercicioFormComponent implements OnInit {
 
   execicioControl = new FormControl();
 
-  dropExercicios: any[];
-
-  dropRepeticoes: any[];
-
-  dropIntervalo: any[];
+  dropExercicios;
+  dropRepeticoes;
+  dropIntervalo;
 
   @Input() exercicio: Exercicio;
-  
+
   constructor(
     private exercicioService: ExercicioService,
     private intervaloService: IntervaloService,

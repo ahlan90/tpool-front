@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Ficha } from '../../models/ficha';
 import { SerieService } from '../../services/serie.service';
@@ -10,11 +11,25 @@ import { SerieService } from '../../services/serie.service';
 export class FichaFormComponent implements OnInit {
 
   ficha$: Ficha;
+  alunoForm: FormGroup;
+  professorForm: FormGroup;
 
   constructor(
-    private service: SerieService) {}
+    private service: SerieService,
+    private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+
+    this.alunoForm = this.formBuilder.group({
+      nome : '',
+    });
+
+    this.professorForm = this.formBuilder.group({
+      nome: '',
+      email: '',
+      telefone: ''
+    });
+
     this.ficha$ = this.service.getFicha();
   }
 

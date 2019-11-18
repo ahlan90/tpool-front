@@ -1,38 +1,25 @@
+import { Intervalo } from './../models/intervalo';
 import { Injectable } from '@angular/core';
-import { Serie } from '../models/serie';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IntervaloService {
 
-  intervalos: any[] = [
-    {
-      id: 1,
-      nome: "10s"
-    },
-    {
-      id: 2,
-      nome: "30s"
-    },
-    {
-      id: 3,
-      nome: "45s"
-    },
-    {
-      id: 4,
-      nome: "60s"
-    },
-    {
-      id: 4,
-      nome: "90s"
-    }
-  ];
+  private intervalosCollection: AngularFirestoreCollection<Intervalo>;
+  intervalos: Observable<Intervalo[]>;
 
-  constructor() {}
+  constructor(
+    private afs: AngularFirestore
+  ) {
+    this.intervalosCollection = afs.collection<Intervalo>('intervalos', ref => ref.orderBy('id'));
+    this.intervalos = this.intervalosCollection.valueChanges();
+  }
 
-  getIntervalos(): any {
+
+  getIntervalos() {
     return this.intervalos;
   }
 

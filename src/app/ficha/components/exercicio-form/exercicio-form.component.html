@@ -7,7 +7,7 @@
                         <input type="text" placeholder="Exercicio" matInput [(ngModel)]="exercicio.nome" name="nome"
                             [matAutocomplete]="autoExercicio">
                         <mat-autocomplete #autoExercicio="matAutocomplete">
-                            <mat-option *ngFor="let item of dropExercicios" [value]="item.nome">
+                            <mat-option *ngFor="let item of dropExercicios | async" [value]="item.nome">
                                 {{ item.nome }}
                             </mat-option>
                         </mat-autocomplete>
@@ -23,7 +23,7 @@
                         <input type="text" placeholder="Repetições" matInput [(ngModel)]="exercicio.repeticao"
                             name="repeticao" [matAutocomplete]="autoRep">
                         <mat-autocomplete #autoRep="matAutocomplete">
-                            <mat-option *ngFor="let item of dropRepeticoes" [value]="item.nome">
+                            <mat-option *ngFor="let item of dropRepeticoes | async" [value]="item.nome">
                                 {{ item.nome }}
                             </mat-option>
                         </mat-autocomplete>
@@ -36,7 +36,7 @@
                         <input type="text" placeholder="Intervalo" matInput [(ngModel)]="exercicio.intervalo"
                             name="intervalo" [matAutocomplete]="autoIntervalo">
                         <mat-autocomplete #autoIntervalo="matAutocomplete">
-                            <mat-option *ngFor="let item of dropIntervalo" [value]="item.nome">
+                            <mat-option *ngFor="let item of dropIntervalo | async" [value]="item.nome">
                                 {{ item.nome }}
                             </mat-option>
                         </mat-autocomplete>

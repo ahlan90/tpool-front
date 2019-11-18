@@ -1,8 +1,62 @@
-<form  [formGroup]="serieForm" (ngSubmit)="addSerie(serieForm.value)">
-    <div class="d-flex mt-2">
-        <mat-form-field appearance="outline">
-            <mat-label>Nome da Série</mat-label>
-            <input matInput placeholder="Placeholder"  formControlName="nome">
-        </mat-form-field>
+<mat-card>
+  <h3>Professor</h3>
+  <mat-divider></mat-divider>
+
+  <form
+    [formGroup]="professorForm"
+    (ngSubmit)="professorInfoAdd(professorForm.value)"
+  >
+    <div class="d-flex mt-4">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Professor</mat-label>
+        <input
+          matInput
+          placeholder="Digite o nome do seu aluno..."
+          formControlName="nome"
+        />
+      </mat-form-field>
     </div>
-</form>
+
+    <div class="d-flex mt-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Email do Professor</mat-label>
+        <input
+          matInput
+          type="email"
+          placeholder="Digite o email..."
+          formControlName="email"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex mt-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Telefone Professor</mat-label>
+        <input
+          matInput
+          type="tel"
+          placeholder="Digite o telefone..."
+          formControlName="telefone"
+        />
+      </mat-form-field>
+    </div>
+  </form>
+</mat-card>
+
+<mat-card class="mt-4">
+  <h3>Aluno</h3>
+  <mat-divider></mat-divider>
+
+  <form [formGroup]="alunoForm" (ngSubmit)="addAlunoInfo(alunoForm.value)">
+    <div class="d-flex mt-4">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do Aluno</mat-label>
+        <input
+          matInput
+          placeholder="Digite o nome do seu aluno..."
+          formControlName="nome"
+        />
+      </mat-form-field>
+    </div>
+  </form>
+</mat-card>

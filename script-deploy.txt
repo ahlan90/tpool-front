@@ -1,0 +1,5 @@
+## POSTAR NO GITHUBPAGES
+ng build --prod --base-href "https://ahlan90.github.io/FichApp/"
+
+## verificar este codigo
+ngh --dir=dist/FichApp

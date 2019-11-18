@@ -10,7 +10,7 @@ import * as appRoute from './app-routing.module';
 })
 export class AppComponent implements OnDestroy {
 
-  title = 'tpool-front';
+  title = 'FichApp';
 
   mobileQuery: MediaQueryList;
 
