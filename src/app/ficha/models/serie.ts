@@ -1,7 +1,8 @@
 import { Exercicio } from './exercicio';
 
-export interface Serie {
-    id: number
-    nome: string
-    exercicios?: Exercicio[]
+export class Serie {
+    serieId: string;
+    nome: string;
+    exercicios?: Exercicio[];
+    ordem: number;
 }

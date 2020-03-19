@@ -1,4 +1,4 @@
-export interface Exercicio{
+export class Exercicio{
     id?: number
     nome: string
     repeticao: string

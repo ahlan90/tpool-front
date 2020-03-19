@@ -20,7 +20,7 @@ export class ProfessorFormComponent implements OnInit {
   
   ngOnInit(){
 
-    this.novoProfessor = this.serieService.getFicha().professor;
+    //this.novoProfessor = this.serieService.getFicha().professor;
     
     this.professorForm = this.formBuilder.group({
       nome: this.novoProfessor ? this.novoProfessor.nome : '',
@@ -31,7 +31,7 @@ export class ProfessorFormComponent implements OnInit {
 
   saveProfessor(professorData) {
     this.novoProfessor = professorData;
-    this.serieService.addProfessor(this.novoProfessor);
+    //this.serieService.addProfessor(this.novoProfessor);
   }
 
 }

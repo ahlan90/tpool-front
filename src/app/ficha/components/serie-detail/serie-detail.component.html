@@ -1,11 +1,11 @@
 <div class="d-flex flex-column">
-    <mat-card-title>Série {{ serie$.nome }}</mat-card-title>
+    <mat-card-title>Série {{ serie?.nome }}</mat-card-title>
     <mat-card-subtitle>Prescreva os exercícios</mat-card-subtitle>
 </div>
 
 <mat-divider></mat-divider>
 
-<mat-accordion *ngFor="let exercicio of serie$.exercicios; let i = index" class="mx-1">
+<mat-accordion *ngFor="let exercicio of serie?.exercicios; let i = index" class="mx-1">
 
     <mat-expansion-panel [expanded]="step === i" (opened)="setStep(i)">
         <mat-expansion-panel-header>

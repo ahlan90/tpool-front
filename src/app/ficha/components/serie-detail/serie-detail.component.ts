@@ -4,6 +4,7 @@ import { switchMap } from 'rxjs/operators';
 import { SerieService } from '../../services/serie.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Exercicio } from '../../models/exercicio';
+import { Serie } from '../../models/serie';
 
 @Component({
   selector: 'app-serie-detail',
@@ -12,9 +13,9 @@ import { Exercicio } from '../../models/exercicio';
 })
 export class SerieDetailComponent implements OnInit {
 
-  serie$;
+  serie: Serie;
 
-  step = 0;
+  step;
 
   idExercicio = 1;
 
@@ -25,10 +26,11 @@ export class SerieDetailComponent implements OnInit {
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    this.serie$ = this.serieService.getSerie(id);
-
-    this.serie$.exercicios = [];
-    this.add();
+    this.serieService.getItem(id).subscribe(res => {
+      this.serie = res;
+      this.step = this.serie.exercicios?.length || 0;
+      this.addEmptyExercicio();
+    });
   }
 
   setStep(index: number) {
@@ -36,11 +38,16 @@ export class SerieDetailComponent implements OnInit {
   }
 
   nextExercise() {
-    this.add();
+    this.updateSerie();
+    this.addEmptyExercicio();
     this.step++;
   }
 
-  add(){
+  updateSerie() {
+    this.serieService.updateItem(this.serie);
+  }
+
+  addEmptyExercicio(){
 
     let exercicio: Exercicio = {
       id: this.idExercicio,
@@ -52,12 +59,13 @@ export class SerieDetailComponent implements OnInit {
 
     this.idExercicio++;
 
-    this.serie$.exercicios.push(exercicio);
+    this.serie.exercicios = this.serie.exercicios || [];
+    this.serie.exercicios.push(exercicio);
     
   }
 
   remove(id){
-    this.serie$.exercicios = this.serie$.exercicios.filter( x => x.id != id);
+    this.serie.exercicios = this.serie.exercicios.filter( x => x.id != id);
   }
 
 }

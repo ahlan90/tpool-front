@@ -30,7 +30,7 @@ export class FichaFormComponent implements OnInit {
       telefone: ''
     });
 
-    this.ficha$ = this.service.getFicha();
+    //this.ficha$ = this.service.getFicha();
   }
 
   addProfessorInfo(value) {

@@ -11,18 +11,20 @@ export class SerieListComponent implements OnInit {
 
   series: Serie[];
 
-  constructor(private serieService: SerieService) {}
+  constructor(
+    private serieService: SerieService
+  ) {}
 
   ngOnInit() {
 
-    this.serieService.getSeriesObservable().subscribe(res => {
+    this.serieService.getItems().subscribe(res => {      
       this.series = res;
     })
 
   }
 
   remove(id) {
-    this.serieService.remove(id);
+    this.serieService.removeItem(id);
   }
 
 }

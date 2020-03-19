@@ -19,7 +19,7 @@ export class AlunoFormComponent implements OnInit {
   
   ngOnInit(){
 
-    this.novoAluno = this.serieService.getFicha().aluno;
+    //this.novoAluno = this.serieService.getFicha().aluno;
     
     this.alunoForm = this.formBuilder.group({
       nome: this.novoAluno ? this.novoAluno.nome : '',
@@ -30,6 +30,6 @@ export class AlunoFormComponent implements OnInit {
 
   saveAluno(alunoData) {
     this.novoAluno = alunoData;
-    this.serieService.addAluno(this.novoAluno);
+    //this.serieService.addAluno(this.novoAluno);
   }
 }

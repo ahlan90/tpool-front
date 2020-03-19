@@ -1,4 +1,4 @@
-export interface Intervalo {
+export class Intervalo {
   id: number;
   nome: string;
 }

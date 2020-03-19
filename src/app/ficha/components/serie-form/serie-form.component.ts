@@ -31,7 +31,7 @@ export class SerieFormComponent implements OnInit{
 
   addSerie(serieData) {
     this.novaSerie = serieData;
-    this.serieService.add(this.novaSerie);
+    this.serieService.addItem(this.novaSerie);
   }
 
 }

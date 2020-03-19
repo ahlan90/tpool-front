@@ -22,7 +22,7 @@ export class FichaPrintComponent implements OnInit {
     private service: SerieService) {}
 
   ngOnInit() {
-    this.ficha$ = this.service.getFicha();
+    //this.ficha$ = this.service.getFicha();
   }
 
   public captureScreen() {

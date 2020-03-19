@@ -19,7 +19,6 @@ export class ExercicioService {
 
   }
 
-
   getNomeExercicios() {
     this.exerciciosObservable = this.exerciciosCollection.valueChanges();
     return this.exerciciosObservable;

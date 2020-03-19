@@ -4,12 +4,12 @@
             <mat-card-content>
                 <div class="d-flex justify-content-between">
 
-                    <mat-card-title style="width: 100%" [routerLink]="[ '/serie', serie.id ]">
+                    <mat-card-title style="width: 100%" [routerLink]="[ '/serie', serie.serieId ]">
                         Série {{ serie.nome }}
                     </mat-card-title>
 
                     <div>
-                        <button mat-button (click)="remove(serie.id)">
+                        <button mat-button (click)="remove(serie.serieId)">
                             <mat-icon>delete</mat-icon>
                         </button>
 
@@ -24,7 +24,7 @@
     </li>
 </ul>
 
-<button *ngIf="series.length > 0"
+<button *ngIf="series?.length > 0"
     mat-fab aria-label="Icon button print"
     [routerLink]="[ '/ficha-print' ]"
     color="primary" class="md-fab-bottom-right">
