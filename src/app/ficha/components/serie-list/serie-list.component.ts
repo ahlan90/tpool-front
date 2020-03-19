@@ -21,7 +21,7 @@ export class SerieListComponent implements OnInit {
 
   }
 
-  remove(id){
+  remove(id) {
     this.serieService.remove(id);
   }
 

@@ -1,7 +1,7 @@
-<mat-card-title>Série {{ serie$.nome }}</mat-card-title>
-<br/>
-<mat-card-subtitle>Prescreva os exercícios</mat-card-subtitle>
-
+<div class="d-flex flex-column">
+    <mat-card-title>Série {{ serie$.nome }}</mat-card-title>
+    <mat-card-subtitle>Prescreva os exercícios</mat-card-subtitle>
+</div>
 
 <mat-divider></mat-divider>
 
@@ -22,12 +22,12 @@
 
         <mat-card-actions class="w-100 d-flex justify-content-between">
             <button mat-raised-button color="warn" aria-label="Icon remove" (click)="remove(exercicio.id)">
-              <mat-icon class="mb-1">delete</mat-icon>
-              REMOVER
+                <mat-icon class="mb-1">delete</mat-icon>
+                REMOVER
             </button>
             <button mat-raised-button color="primary" aria-label="Icon remove" (click)="nextExercise()">
-              <mat-icon class="mb-1">arrow_downward</mat-icon>
-              PRÓXIMO
+                <mat-icon class="mb-1">arrow_downward</mat-icon>
+                PRÓXIMO
             </button>
         </mat-card-actions>
     </mat-expansion-panel>

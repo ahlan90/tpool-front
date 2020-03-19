@@ -20,11 +20,12 @@ export class SerieDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: SerieService) { }
+    private serieService: SerieService
+  ) {}
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    this.serie$ = this.service.getSerie(id);
+    this.serie$ = this.serieService.getSerie(id);
 
     this.serie$.exercicios = [];
     this.add();
@@ -52,6 +53,7 @@ export class SerieDetailComponent implements OnInit {
     this.idExercicio++;
 
     this.serie$.exercicios.push(exercicio);
+    
   }
 
   remove(id){

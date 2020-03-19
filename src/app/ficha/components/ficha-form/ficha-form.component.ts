@@ -33,4 +33,12 @@ export class FichaFormComponent implements OnInit {
     this.ficha$ = this.service.getFicha();
   }
 
+  addProfessorInfo(value) {
+    console.log('Professor', value);
+  }
+
+  addAlunoInfo(value) {
+    console.log('Aluno', value);
+  }
+
 }
